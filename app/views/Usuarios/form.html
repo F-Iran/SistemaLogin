@@ -1,0 +1,75 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Criar Usuario</h3></div>
+                                    <div class="card-body">
+                                        <form action="@{Usuarios.salvar}">
+                                        <input type="hidden" name="usuario.id" value="${usuario?.id}">
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" name="usuario.nome" value="${usuario?.nome}" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                                        <label for="inputFirstName">Nome</label>
+                                                        <span class='vermelho'>#{error 'usuario.nome' /}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" name="usuario.cpf" value="${usuario?.cpf}" id="inputLastName" type="text" placeholder="Enter your last name" />
+                                                        <label for="inputLastName">CPF</label>
+                                                        <span class='vermelho'>#{error 'usuario.cpf' /}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control"name="usuario.email" value="${usuario?.email}"id="inputEmail" type="email" placeholder="name@example.com" />
+                                                <label for="inputEmail">Email</label>
+                                                <span class='vermelho'>#{error 'usuario.email' /}</span>
+                                            </div>
+                                            
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" name="usuario.data" value="${usuario?.data}"id="inputEmail" type="date" placeholder="name@example.com" />
+                                                <label for="inputEmail">Data</label>
+                                                <span class='vermelho'>#{error 'usuario.data' /}</span>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" name="senha" id="inputPassword" type="password" placeholder="Create a password" />
+                                                        <label for="inputPassword">Senha</label>
+                                                        <span class='vermelho'>#{error 'usuario.senha' /}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" name="usuario.confirmacaoSenha"  id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                                                        <label for="inputPasswordConfirm">Confirm Senha</label>
+                                                    </div>
+                                                    
+                                                     
+                                                </div>
+                                               <div class="col-md-6">
+                                                        Nivel 
+															<select name="usuario.nivel">
+																<option value="0" #{if usuario?.nivel == 0} selected #{/if}>Comum</option>
+																<option value="1" #{if usuario?.nivel == 1} selected #{/if}>Admin</option>
+															</select>
+															 <br/>
+                                                    </div>
+                                            </div>
+                                            <div class="mt-4 mb-0">
+    									<button class="btn btn-primary">Criar</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="login.html">Have an account? Go to login</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
